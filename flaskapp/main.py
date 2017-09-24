@@ -46,10 +46,15 @@ access_token_secret = "ih15H1CqTZPJLZ6Lm9ccoSrEi9GS6CXFdHEg7lI689e4C"
 consumer_key = "anVP2vNleAyYWwVg5f1lW5zEV"
 consumer_secret = "tEdg4nwZS0AQd2hDfwrhLHW2ySoH9xvh18VzFAG6Y9xUbpaLve"
 
-#access_token = "111305796-lEpRQbd49BBVlzBJsn0usVT9cUkF4wZ6xJGABIqa"
-#access_token_secret = "RQjR6LS1zjhHp7NWnuokeLhlccG7AFSd6PB34rYksYHs0"
-#consumer_key = "B6E7aFvsWte9WznfTZk5Lui2y"
-#consumer_secret = "6PV6CI024k3lAmvmnUHbBTePXnSFjxiIQNYwwI9r3AwsOvs4SK"
+# access_token = "111305796-lEpRQbd49BBVlzBJsn0usVT9cUkF4wZ6xJGABIqa"
+# access_token_secret = "RQjR6LS1zjhHp7NWnuokeLhlccG7AFSd6PB34rYksYHs0"
+# consumer_key = "B6E7aFvsWte9WznfTZk5Lui2y"
+# consumer_secret = "6PV6CI024k3lAmvmnUHbBTePXnSFjxiIQNYwwI9r3AwsOvs4SK"
+# consumer_key = "8u72ob94y8D4lHh7vUz7Hmdch"
+# consumer_secret = "NXEK09DZS1YMOD3l1DlR8lXkQEsbWsK8Iy4RRhGwrCqKvqCkYl"
+# access_token = "111305796-g3TeJvvIJJkPMlhp4WJCgXErLqvqR0nYjHR3cE10"
+# access_token_secret	= "rKTtvmUYlIg4D3SnNFrVoVVOYMUmDntQsHbKBUmnHbj2F"
+
 
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)

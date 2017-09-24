@@ -94,7 +94,7 @@ function displayChart(bitcoinDataURL  ,Bitcoindata,elementId){
             //  TODO: Change the data format here
              drawPolarChart({
                label:["negative","neutral","positive"],
-               data:[data.negative.tweets.length, data.neutral.tweets.length, data.positive.tweets.length]
+               data:[data.negative, data.neutral, data.positive]
              },elementId)
         },
         timeout: 50000 // sets timeout to 50 seconds
@@ -124,17 +124,17 @@ $( document ).ready(function() {
 
   // First Get Bitcoin data
   // TODO: Added temporary
-  let keyWord="mhacks"
+  let keyWord="bitcoin"
   let bitcoinDataURL="http://trackmymoneymaker.appspot.com/query?q="+keyWord;
   var Bitcoindata={}
   elementId="myChart-11"
   displayChart(bitcoinDataURL,Bitcoindata,elementId)
-  keyWord="mhacks"
+  keyWord="litecoin"
   let LiteCoinUrl="http://trackmymoneymaker.appspot.com/query?q="+keyWord;
   elementId="myChart-21"
   console.log("2nd chart")
   displayChart(LiteCoinUrl,Bitcoindata,elementId)
-  keyWord="mhacks"
+  keyWord="etherum"
   let etherumURL="http://trackmymoneymaker.appspot.com/query?q="+keyWord;
   console.log("3rd chart")
   elementId="myChart-31"
