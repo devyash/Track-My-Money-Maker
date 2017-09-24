@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "TrackMyMoneyMaker",
+  "description": "This extension will help you keep track of your virtual currency prices",
+  "version": "1.0",
+  "content_scripts": [{
+        "matches": ["*://*/*"],
+        "js": ["js/jquery.js","js/chart.js", "js/popup.js"],
+        "run_at": "document_end"
+    }],
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
+  },
+  "permissions": [
+   "activeTab"
+   ]
+}
