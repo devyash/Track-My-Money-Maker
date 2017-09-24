@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Track My Money Maker</title>
+  </head>
+  <script src="js/chart.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/fontAwesome.js"></script>
+  <script src="js/underscore.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">TrackMyMoneyMaker</a> <input id="image" type="image" src="./images/logo.png" width="50" height="50"> powered by <input id="image" type="image" src="./images/coinbase.png" width="50" height="50"><input id="image" type="image" src="./images/google_cloud.png" width="100" height="50"><input id="image" type="image" src="./images/google_ml.png" width="50" height="50"> <input id="image" type="image" src="./images/giphy.png" width="50" height="50">
+			</div>
+		</nav>
+		<section>
+      <div class="panel panel-default">
+        &nbsp;&nbsp;<label>Bitcoin Price</label>&nbsp;&nbsp;<i class="fa fa-btc" aria-hidden="true"><label>:&nbsp;&nbsp;</label></i><label id='bitcoin'>3774.12</label><label>&nbsp;&nbsp;$</label>
+        <br>
+        &nbsp;&nbsp;<label>Litecoin Price&nbsp;&nbsp;<i class="fa fa-money" aria-hidden="true"></i>:&nbsp;&nbsp;</label><label id='litecoin'>48.32</label><label>&nbsp;&nbsp;$</label>
+        <br>
+        &nbsp;&nbsp;<label>Etherum Price&nbsp;&nbsp;<i class="fa fa-money" aria-hidden="true"></i>:&nbsp;&nbsp;</label><label id='etherum'>272.23</label><label>&nbsp;&nbsp;$</label>
+        <br>
+      </div>
+
+      <button class="btn btn-info" id="checkPage">Update</button>
+      <button class="btn btn-info" id="shouldIBuy">Buy?</button>
+      <button class="btn btn-info" id="visualize">Visualize</button>
+		</section>
+    </body>
+
+</html>
