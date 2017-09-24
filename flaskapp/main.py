@@ -12,6 +12,12 @@ app = Flask(__name__)
 CORS(app)
 
 response = {
+    "negative": 0,
+    "neutral" : 0,
+    "positive": 0
+}
+
+response2 = {
     "negative": {
       "size": "4",
       "tweets": []
@@ -40,11 +46,16 @@ access_token_secret = "ih15H1CqTZPJLZ6Lm9ccoSrEi9GS6CXFdHEg7lI689e4C"
 consumer_key = "anVP2vNleAyYWwVg5f1lW5zEV"
 consumer_secret = "tEdg4nwZS0AQd2hDfwrhLHW2ySoH9xvh18VzFAG6Y9xUbpaLve"
 
+#access_token = "111305796-lEpRQbd49BBVlzBJsn0usVT9cUkF4wZ6xJGABIqa"
+#access_token_secret = "RQjR6LS1zjhHp7NWnuokeLhlccG7AFSd6PB34rYksYHs0"
+#consumer_key = "B6E7aFvsWte9WznfTZk5Lui2y"
+#consumer_secret = "6PV6CI024k3lAmvmnUHbBTePXnSFjxiIQNYwwI9r3AwsOvs4SK"
+
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
-
 def get_last_day(query):
+    r = 0
     for tweet in tweepy.Cursor(api.search,
                                q=query,
                                rpp=100,
@@ -67,22 +78,72 @@ def get_last_day(query):
           "timestamp": tweet.created_at
         }
         if resp.document_sentiment.score > 0.25:
-            response['positive']['tweets'].append(obj)
+            response2['positive']['tweets'].append(obj)
         elif resp.document_sentiment.score < -0.25:
-            response['negative']['tweets'].append(obj)
+            response2['negative']['tweets'].append(obj)
         else:
-            response['neutral']['tweets'].append(obj)
+            response2['neutral']['tweets'].append(obj)
+	r += 1
+	if r > 500:
+		break
+
+def get_last(query):
+    i = 0
+    e = ""
+    cnt = 50
+    r = 0
+    for tweet in tweepy.Cursor(api.search,
+                               q=query,
+                               rpp=100,
+                               result_type="recent",
+                               include_entities=True,
+                               lang="en").items():
+        url = "https://twitter.com/" + tweet.user.screen_name + "/status/" + tweet.id_str
+	if i == cnt:
+        	document = language_v1.types.Document(content=filter_tweet(e), type="PLAIN_TEXT")
+        	resp = client.analyze_sentiment(document = document, encoding_type='UTF32')
+		e = ""
+		print resp.document_sentiment.score
+        	if resp.document_sentiment.score > 0.1:
+            		response['positive'] += i
+        	elif resp.document_sentiment.score < -0.1:
+            		response['negative'] += i
+        	else:
+            		response['neutral'] += i
+		i = 0
+	e += tweet.text + " "
+	i += 1
+	r += 1
+	if r > 500:
+		break
+
+    document = language_v1.types.Document(content=filter_tweet(e), type="PLAIN_TEXT")
+    resp = client.analyze_sentiment(document = document, encoding_type='UTF32')
+    e = ""
+    print resp.document_sentiment.score
+    if resp.document_sentiment.score > 0.1:
+    	response['positive'] += i
+    elif resp.document_sentiment.score < -0.1:
+     	response['negative'] += i
+    else:
+    	response['neutral'] += i
+    i = 0
+
+
 
 @app.route('/query', methods=['GET'])
 def query():
+    print "query hit"
     q = request.args.get('q')
-    get_last_day(q)
+    get_last(q)
     return jsonify({"response":response})
 
-@app.route('/test', methods=['GET'])
+@app.route('/q', methods=['GET'])
 def test():
-    response={"test":"test"}
-    return jsonify({"response":response})
+    print "q hit"
+    q = request.args.get('q')
+    get_last_day(q)
+    return jsonify({"response":response2})
 
 
 if __name__ == '__main__':
