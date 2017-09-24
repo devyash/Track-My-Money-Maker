@@ -60,34 +60,31 @@ function drawGraph(coin_base_url,label,elementId){
   }
 
 function drawPolarChart(obj,elementId){
-      // Display the data
-      console.log("In draw Polar Chart");
-      console.log(obj)
-      let res = {
-        datasets: [{
-            data: obj.data,
-            backgroundColor: [
-                  "#F7464A",
-                  "#46BFBD",
-                  "#FDB45C"
-              ],
-       borderColor: "rgba(0, 0, 0, 0.8)"
-     }],
+    // Display the data
+    console.log(obj)
+    let res = {
+      datasets: [{
+          data: obj.data,
+          backgroundColor: [
+                "#F7464A",
+                "#46BFBD",
+                "#FDB45C"
+            ],
+   borderColor: "rgba(0, 0, 0, 0.8)"
+ }],
+
+
       // These labels appear in the legend and in the tooltips when hovering different arcs
       labels: obj.label,
-    };
-    console.log("About to draw the Graph");
-    console.log(res);
-    var ctx = document.getElementById(elementId).getContext('2d');
-    console.log("Got the context");
-    var chart = new Chart(ctx, {
-      data: res,
-      type: 'polarArea',
-      options: {}});
-    console.log("Updated the Graph")
+  };
+  var ctx = document.getElementById(elementId).getContext('2d');
+  var chart = new Chart(ctx, {
+    data: res,
+    type: 'polarArea',
+    options: {}});
 }
 
-function displayChart(bitcoinDataURL,Bitcoindata,elementId){
+function displayChart(bitcoinDataURL  ,Bitcoindata,elementId){
     new Promise((resolve, reject) => {
         $.ajax({
         url: bitcoinDataURL,

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">  <script src="js/chart.js"></script>
+  <script src="js/moment.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/fontAwesome.js"></script>
+  <script src="js/underscore.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <nav class="navbar navbar-inverse bg-primary">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Track My Money Maker</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Analytics</a></li>
+        <li><a href="#">About us</a></li>
+
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <br>
+    <br>
+      <div class="card">
+        <div class="card-body">
+          <br>
+          <div class="row">
+            <div class="col-sm-4">
+              <label> &nbsp; &nbsp;Enter the Company to Search: </label>
+            </div>
+            <div class="col-sm-4">
+              <input type="text"></text>
+            </div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-info" id="searchButton">&nbsp;&nbsp;Search&nbsp;&nbsp;</button>
+            </div>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+
+
+    <div class="row">
+      <div class="col-sm-6">
+        <h5 style="text-align:center">Price of Bitcoin in last 24hrs</h5>
+        <canvas id="myChart-1"></canvas>
+      </div>
+      <div class="col-sm-6">
+        <h5 style="text-align:center">Sentiment in last 24 hrs</h5>
+        <canvas id="myChart-11"></canvas>
+      </div>
+    </div>
+    </div>
+    <br>
+    <br>
+<!-- 2ND ROW  -->
+    <div class="row">
+      <div class="col-sm-6">
+        <h5 style="text-align:center">Price of Litecoin in last 24hrs</h5>
+        <canvas id="myChart-2"></canvas>
+      </div>
+      <div class="col-sm-6">
+        <h5 style="text-align:center">Sentiment in last 24 hrs</h5>
+        <canvas id="myChart-21"></canvas>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <!-- 3RD ROW -->
+    <div class="row">
+      <div class="col-sm-6">
+        <h5 style="text-align:center">Price of Etherum in last 24hrs</h5>
+        <canvas id="myChart-3"></canvas>
+      </div>
+      <div class="col-sm-6">
+        <h5 style="text-align:center">Sentiment in last 24 hrs</h5>
+        <canvas id="myChart-31"></canvas>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="row">
+      <canvas id="myChart-polarchart"></canvas>
+    </div>
+  </div>
+
+</body>
+</html>
